@@ -32,14 +32,14 @@ try:
     model = train_model()
     
     # 3. Create the interactive user input
-    hours = st.number_input("How many hours did you study?", min_value=0.0, max_value=24.0, value=5.0, step=0.5)
+    hours = st.number_input("How many hours did you study per day?", min_value=0.0, max_value=24.0, value=5.0, step=0.5)
     
     # 4. Make the prediction when they click the button
     if st.button("Predict My Score!"):
         prediction = model.predict([[hours]])
         final_score = min(prediction[0], 100.0) # Cap the score at 100%
         
-        st.success(f"📈 If you study for {hours} hours, your predicted score is: **{final_score:.2f}%**")
+        st.success(f"📈 If you study for {hours} hours, your predicted score is: **{final_score:.2f} out of 50**")
         st.balloons() # This adds a fun balloon animation on the screen!
 
 except FileNotFoundError:
