@@ -37,7 +37,7 @@ try:
     # 4. Make the prediction when they click the button
     if st.button("Predict My Score!"):
         prediction = model.predict([[hours]])
-        final_score = min(prediction[0], 100.0) # Cap the score at 100%
+        final_score = min(prediction[0], 50.0) # max score is 50
         
         st.success(f"📈 If you study for {hours} hours, your predicted score is: **{final_score:.2f} out of 50**")
         st.balloons() # This adds a fun balloon animation on the screen!
